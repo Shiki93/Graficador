@@ -30,6 +30,11 @@ public class Principal extends javax.swing.JFrame {
         btn_agregarPac = new javax.swing.JButton();
         btn_agregarEnf = new javax.swing.JButton();
         btn_agregarTrat = new javax.swing.JButton();
+        btn_GrafEnf = new javax.swing.JButton();
+        lay_Workbench = new javax.swing.JLayeredPane();
+        btn_GrafPac = new javax.swing.JButton();
+        btn_Salir = new javax.swing.JButton();
+        btn_GrafGeo = new javax.swing.JButton();
         lbl_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,12 +62,63 @@ public class Principal extends javax.swing.JFrame {
         btn_agregarTrat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(btn_agregarTrat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
 
+        btn_GrafEnf.setBackground(new java.awt.Color(0, 0, 0));
+        btn_GrafEnf.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_GrafEnf.setForeground(new java.awt.Color(255, 255, 255));
+        btn_GrafEnf.setText("Graficar Enfermedad");
+        btn_GrafEnf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(btn_GrafEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 170, 30));
+
+        lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout lay_WorkbenchLayout = new javax.swing.GroupLayout(lay_Workbench);
+        lay_Workbench.setLayout(lay_WorkbenchLayout);
+        lay_WorkbenchLayout.setHorizontalGroup(
+            lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 846, Short.MAX_VALUE)
+        );
+        lay_WorkbenchLayout.setVerticalGroup(
+            lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
+
+        btn_GrafPac.setBackground(new java.awt.Color(0, 0, 0));
+        btn_GrafPac.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_GrafPac.setForeground(new java.awt.Color(255, 255, 255));
+        btn_GrafPac.setText("Graficar Paciente");
+        btn_GrafPac.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(btn_GrafPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, 30));
+
+        btn_Salir.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Salir.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_Salir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Salir.setText("Salir");
+        btn_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 170, 30));
+
+        btn_GrafGeo.setBackground(new java.awt.Color(0, 0, 0));
+        btn_GrafGeo.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_GrafGeo.setForeground(new java.awt.Color(255, 255, 255));
+        btn_GrafGeo.setText("Graficar Geografia");
+        btn_GrafGeo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(btn_GrafGeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 170, 30));
+
         lbl_Fondo.setBackground(new java.awt.Color(0, 0, 0));
         lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
         getContentPane().add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,9 +156,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_GrafEnf;
+    private javax.swing.JButton btn_GrafGeo;
+    private javax.swing.JButton btn_GrafPac;
+    private javax.swing.JButton btn_Salir;
     private javax.swing.JButton btn_agregarEnf;
     private javax.swing.JButton btn_agregarPac;
     private javax.swing.JButton btn_agregarTrat;
+    private javax.swing.JLayeredPane lay_Workbench;
     private javax.swing.JLabel lbl_Fondo;
     // End of variables declaration//GEN-END:variables
 }
