@@ -32,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         btn_agregarTrat = new javax.swing.JButton();
         btn_GrafEnf = new javax.swing.JButton();
         lay_Workbench = new javax.swing.JLayeredPane();
+        pnl_Paciente = new javax.swing.JPanel();
+        txt_Nombre = new javax.swing.JTextField();
+        txt_Cedula = new javax.swing.JTextField();
         btn_GrafPac = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
         btn_GrafGeo = new javax.swing.JButton();
@@ -71,15 +74,50 @@ public class Principal extends javax.swing.JFrame {
 
         lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        pnl_Paciente.setOpaque(false);
+        pnl_Paciente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_Nombre.setBackground(new java.awt.Color(0, 0, 0));
+        txt_Nombre.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        txt_Nombre.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Nombre.setText("Nombre");
+        txt_Nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_NombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_NombreFocusLost(evt);
+            }
+        });
+        pnl_Paciente.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 290, -1));
+
+        txt_Cedula.setBackground(new java.awt.Color(0, 0, 0));
+        txt_Cedula.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        txt_Cedula.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Cedula.setText("Cedula: ");
+        txt_Cedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_CedulaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_CedulaFocusLost(evt);
+            }
+        });
+        pnl_Paciente.add(txt_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 290, -1));
+
+        lay_Workbench.setLayer(pnl_Paciente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout lay_WorkbenchLayout = new javax.swing.GroupLayout(lay_Workbench);
         lay_Workbench.setLayout(lay_WorkbenchLayout);
         lay_WorkbenchLayout.setHorizontalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         lay_WorkbenchLayout.setVerticalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
         );
 
         getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
@@ -119,6 +157,26 @@ public class Principal extends javax.swing.JFrame {
     private void btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btn_SalirActionPerformed
+
+    private void txt_NombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusGained
+        txt_Nombre.setText("");
+    }//GEN-LAST:event_txt_NombreFocusGained
+
+    private void txt_NombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusLost
+        if("".equals(txt_Nombre.getText()) || " ".equals(txt_Nombre.getText())){
+            txt_Nombre.setText("Nombre: ");
+        }
+    }//GEN-LAST:event_txt_NombreFocusLost
+
+    private void txt_CedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CedulaFocusGained
+        txt_Cedula.setText("");
+    }//GEN-LAST:event_txt_CedulaFocusGained
+
+    private void txt_CedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CedulaFocusLost
+        if("".equals(txt_Cedula.getText()) || " ".equals(txt_Cedula.getText())){
+            txt_Cedula.setText("Cedula: ");
+        }
+    }//GEN-LAST:event_txt_CedulaFocusLost
 
     /**
      * @param args the command line arguments
@@ -165,5 +223,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarTrat;
     private javax.swing.JLayeredPane lay_Workbench;
     private javax.swing.JLabel lbl_Fondo;
+    private javax.swing.JPanel pnl_Paciente;
+    private javax.swing.JTextField txt_Cedula;
+    private javax.swing.JTextField txt_Nombre;
     // End of variables declaration//GEN-END:variables
 }
