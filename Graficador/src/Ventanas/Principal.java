@@ -16,8 +16,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        this.lbl_Acepto.setVisible(false);
-        this.lbl_error.setVisible(false);
+        this.cbx_ref.setEnabled(false);
     }
 
     /**
@@ -33,18 +32,34 @@ public class Principal extends javax.swing.JFrame {
         btn_GrafEnf = new javax.swing.JButton();
         lay_Workbench = new javax.swing.JLayeredPane();
         pnl_Paciente = new javax.swing.JPanel();
-        txt_Nombre = new javax.swing.JTextField();
-        txt_Cedula = new javax.swing.JTextField();
-        txt_fechNac = new javax.swing.JTextField();
-        txt_Residencia = new javax.swing.JTextField();
-        cbx_Enfermedades = new javax.swing.JComboBox<>();
-        btn_AgregarEnf = new javax.swing.JButton();
-        cbx_Med = new javax.swing.JComboBox<>();
-        btn_AgregarMed = new javax.swing.JButton();
-        lbl_Acepto = new javax.swing.JLabel();
-        lbl_error = new javax.swing.JLabel();
-        btn_Conf = new javax.swing.JButton();
-        btn_Borrar = new javax.swing.JButton();
+        txt_nombre = new javax.swing.JTextField();
+        txt_cedula = new javax.swing.JTextField();
+        txt_edad = new javax.swing.JTextField();
+        cbx_sexo = new javax.swing.JComboBox<>();
+        cbx_res = new javax.swing.JComboBox<>();
+        chk_Nuevo = new javax.swing.JCheckBox();
+        cbx_ref = new javax.swing.JComboBox<>();
+        chk_Poli = new javax.swing.JCheckBox();
+        chk_abandono = new javax.swing.JCheckBox();
+        chk_vp = new javax.swing.JCheckBox();
+        chk_Alta = new javax.swing.JCheckBox();
+        chk_epoc = new javax.swing.JCheckBox();
+        chk_Cardio = new javax.swing.JCheckBox();
+        chk_Osteo = new javax.swing.JCheckBox();
+        chk_dm = new javax.swing.JCheckBox();
+        chk_irc = new javax.swing.JCheckBox();
+        chk_park = new javax.swing.JCheckBox();
+        chk_hta = new javax.swing.JCheckBox();
+        cgk_demen = new javax.swing.JCheckBox();
+        chk_inmv = new javax.swing.JCheckBox();
+        chk_avc = new javax.swing.JCheckBox();
+        chk_cancer = new javax.swing.JCheckBox();
+        chk_otros = new javax.swing.JCheckBox();
+        btn_conf = new javax.swing.JButton();
+        btn_borrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        lbl_acepto = new javax.swing.JLabel();
+        lbl_Error = new javax.swing.JLabel();
         btn_GrafPac = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
         btn_GrafGeo = new javax.swing.JButton();
@@ -66,6 +81,11 @@ public class Principal extends javax.swing.JFrame {
         btn_GrafEnf.setForeground(new java.awt.Color(255, 255, 255));
         btn_GrafEnf.setText("Graficar Enfermedad");
         btn_GrafEnf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_GrafEnf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_GrafEnfActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_GrafEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 170, 30));
 
         lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -73,118 +93,226 @@ public class Principal extends javax.swing.JFrame {
         pnl_Paciente.setOpaque(false);
         pnl_Paciente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_Nombre.setBackground(new java.awt.Color(0, 0, 0));
-        txt_Nombre.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        txt_Nombre.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Nombre.setText("Nombre");
-        txt_Nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+        txt_nombre.setBackground(new java.awt.Color(0, 0, 0));
+        txt_nombre.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        txt_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nombre.setText("Nombre: ");
+        txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_NombreFocusGained(evt);
+                txt_nombreFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_NombreFocusLost(evt);
+                txt_nombreFocusLost(evt);
             }
         });
-        pnl_Paciente.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 290, -1));
+        pnl_Paciente.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
 
-        txt_Cedula.setBackground(new java.awt.Color(0, 0, 0));
-        txt_Cedula.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        txt_Cedula.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Cedula.setText("Cedula: ");
-        txt_Cedula.addFocusListener(new java.awt.event.FocusAdapter() {
+        txt_cedula.setBackground(new java.awt.Color(0, 0, 0));
+        txt_cedula.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        txt_cedula.setForeground(new java.awt.Color(255, 255, 255));
+        txt_cedula.setText("Cedula: ");
+        txt_cedula.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_CedulaFocusGained(evt);
+                txt_cedulaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_CedulaFocusLost(evt);
+                txt_cedulaFocusLost(evt);
             }
         });
-        pnl_Paciente.add(txt_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 290, -1));
+        pnl_Paciente.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 250, -1));
 
-        txt_fechNac.setBackground(new java.awt.Color(0, 0, 0));
-        txt_fechNac.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        txt_fechNac.setForeground(new java.awt.Color(255, 255, 255));
-        txt_fechNac.setText("Fecha Nacimiento: ");
-        txt_fechNac.addFocusListener(new java.awt.event.FocusAdapter() {
+        txt_edad.setBackground(new java.awt.Color(0, 0, 0));
+        txt_edad.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        txt_edad.setForeground(new java.awt.Color(255, 255, 255));
+        txt_edad.setText("Edad");
+        txt_edad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_fechNacFocusGained(evt);
+                txt_edadFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_fechNacFocusLost(evt);
+                txt_edadFocusLost(evt);
             }
         });
-        txt_fechNac.addActionListener(new java.awt.event.ActionListener() {
+        pnl_Paciente.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 250, -1));
+
+        cbx_sexo.setBackground(new java.awt.Color(0, 0, 0));
+        cbx_sexo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        cbx_sexo.setForeground(new java.awt.Color(255, 255, 255));
+        cbx_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sexo", "Masculino", "Femenino" }));
+        pnl_Paciente.add(cbx_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 250, -1));
+
+        cbx_res.setBackground(new java.awt.Color(0, 0, 0));
+        cbx_res.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        cbx_res.setForeground(new java.awt.Color(255, 255, 255));
+        cbx_res.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Residencia", "Nicoya", "Santa Cruz", "Nandayure", "Hojancha", "Jicaral" }));
+        cbx_res.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fechNacActionPerformed(evt);
+                cbx_resActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(txt_fechNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 290, -1));
+        pnl_Paciente.add(cbx_res, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, -1));
 
-        txt_Residencia.setBackground(new java.awt.Color(0, 0, 0));
-        txt_Residencia.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        txt_Residencia.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Residencia.setText("Residencia: ");
-        txt_Residencia.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_ResidenciaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_ResidenciaFocusLost(evt);
+        chk_Nuevo.setBackground(new java.awt.Color(0, 0, 0));
+        chk_Nuevo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_Nuevo.setForeground(new java.awt.Color(255, 255, 255));
+        chk_Nuevo.setText("Nuevo");
+        chk_Nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_NuevoActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(txt_Residencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 290, -1));
+        pnl_Paciente.add(chk_Nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 100, -1));
 
-        cbx_Enfermedades.setBackground(new java.awt.Color(0, 0, 0));
-        cbx_Enfermedades.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        cbx_Enfermedades.setForeground(new java.awt.Color(255, 255, 255));
-        cbx_Enfermedades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enfermedades" }));
-        pnl_Paciente.add(cbx_Enfermedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 290, -1));
+        cbx_ref.setBackground(new java.awt.Color(0, 0, 0));
+        cbx_ref.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        cbx_ref.setForeground(new java.awt.Color(255, 255, 255));
+        cbx_ref.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Referencia", "Interna", "Externa" }));
+        pnl_Paciente.add(cbx_ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 250, -1));
 
-        btn_AgregarEnf.setBackground(new java.awt.Color(0, 0, 0));
-        btn_AgregarEnf.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btn_AgregarEnf.setForeground(new java.awt.Color(255, 255, 255));
-        btn_AgregarEnf.setText("Agregar");
-        pnl_Paciente.add(btn_AgregarEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 130, -1));
+        chk_Poli.setBackground(new java.awt.Color(0, 0, 0));
+        chk_Poli.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_Poli.setForeground(new java.awt.Color(255, 255, 255));
+        chk_Poli.setText("Polifarmacia");
+        pnl_Paciente.add(chk_Poli, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        cbx_Med.setBackground(new java.awt.Color(0, 0, 0));
-        cbx_Med.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        cbx_Med.setForeground(new java.awt.Color(255, 255, 255));
-        cbx_Med.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tratamiento" }));
-        pnl_Paciente.add(cbx_Med, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 290, -1));
+        chk_abandono.setBackground(new java.awt.Color(0, 0, 0));
+        chk_abandono.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_abandono.setForeground(new java.awt.Color(255, 255, 255));
+        chk_abandono.setText("Abandono");
+        pnl_Paciente.add(chk_abandono, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 120, -1));
 
-        btn_AgregarMed.setBackground(new java.awt.Color(0, 0, 0));
-        btn_AgregarMed.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btn_AgregarMed.setForeground(new java.awt.Color(255, 255, 255));
-        btn_AgregarMed.setText("Agregar");
-        pnl_Paciente.add(btn_AgregarMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 130, -1));
-
-        lbl_Acepto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Acepto.jpg"))); // NOI18N
-        pnl_Paciente.add(lbl_Acepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
-
-        lbl_error.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Error.png"))); // NOI18N
-        pnl_Paciente.add(lbl_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, 300));
-
-        btn_Conf.setBackground(new java.awt.Color(0, 0, 0));
-        btn_Conf.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btn_Conf.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Conf.setText("Confirmar");
-        btn_Conf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_ConfMouseClicked(evt);
+        chk_vp.setBackground(new java.awt.Color(0, 0, 0));
+        chk_vp.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_vp.setForeground(new java.awt.Color(255, 255, 255));
+        chk_vp.setText("V.P.");
+        chk_vp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_vpActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(btn_Conf, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 290, -1));
+        pnl_Paciente.add(chk_vp, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
-        btn_Borrar.setBackground(new java.awt.Color(0, 0, 0));
-        btn_Borrar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        btn_Borrar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_Borrar.setText("Borrar");
-        btn_Borrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_BorrarMouseClicked(evt);
+        chk_Alta.setBackground(new java.awt.Color(0, 0, 0));
+        chk_Alta.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_Alta.setForeground(new java.awt.Color(255, 255, 255));
+        chk_Alta.setText("Alta");
+        chk_Alta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_AltaActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(btn_Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 290, -1));
+        pnl_Paciente.add(chk_Alta, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
+
+        chk_epoc.setBackground(new java.awt.Color(0, 0, 0));
+        chk_epoc.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_epoc.setForeground(new java.awt.Color(255, 255, 255));
+        chk_epoc.setText("E.P.O.C.");
+        chk_epoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_epocActionPerformed(evt);
+            }
+        });
+        pnl_Paciente.add(chk_epoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 130, -1));
+
+        chk_Cardio.setBackground(new java.awt.Color(0, 0, 0));
+        chk_Cardio.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_Cardio.setForeground(new java.awt.Color(255, 255, 255));
+        chk_Cardio.setText("Cardiopatia");
+        pnl_Paciente.add(chk_Cardio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 120, -1));
+
+        chk_Osteo.setBackground(new java.awt.Color(0, 0, 0));
+        chk_Osteo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_Osteo.setForeground(new java.awt.Color(255, 255, 255));
+        chk_Osteo.setText("Osteoposoris");
+        pnl_Paciente.add(chk_Osteo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+
+        chk_dm.setBackground(new java.awt.Color(0, 0, 0));
+        chk_dm.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_dm.setForeground(new java.awt.Color(255, 255, 255));
+        chk_dm.setText("D.M.");
+        pnl_Paciente.add(chk_dm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+
+        chk_irc.setBackground(new java.awt.Color(0, 0, 0));
+        chk_irc.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_irc.setForeground(new java.awt.Color(255, 255, 255));
+        chk_irc.setText("I.R.C.");
+        pnl_Paciente.add(chk_irc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        chk_park.setBackground(new java.awt.Color(0, 0, 0));
+        chk_park.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_park.setForeground(new java.awt.Color(255, 255, 255));
+        chk_park.setText("Parkinson");
+        chk_park.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_parkActionPerformed(evt);
+            }
+        });
+        pnl_Paciente.add(chk_park, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 120, -1));
+
+        chk_hta.setBackground(new java.awt.Color(0, 0, 0));
+        chk_hta.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_hta.setForeground(new java.awt.Color(255, 255, 255));
+        chk_hta.setText("H.T.A.");
+        pnl_Paciente.add(chk_hta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
+
+        cgk_demen.setBackground(new java.awt.Color(0, 0, 0));
+        cgk_demen.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        cgk_demen.setForeground(new java.awt.Color(255, 255, 255));
+        cgk_demen.setText("Demencia");
+        pnl_Paciente.add(cgk_demen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+
+        chk_inmv.setBackground(new java.awt.Color(0, 0, 0));
+        chk_inmv.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_inmv.setForeground(new java.awt.Color(255, 255, 255));
+        chk_inmv.setText("Inmovil");
+        pnl_Paciente.add(chk_inmv, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        chk_avc.setBackground(new java.awt.Color(0, 0, 0));
+        chk_avc.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_avc.setForeground(new java.awt.Color(255, 255, 255));
+        chk_avc.setText("A.V.C.");
+        pnl_Paciente.add(chk_avc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
+
+        chk_cancer.setBackground(new java.awt.Color(0, 0, 0));
+        chk_cancer.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_cancer.setForeground(new java.awt.Color(255, 255, 255));
+        chk_cancer.setText("Cancer");
+        pnl_Paciente.add(chk_cancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+
+        chk_otros.setBackground(new java.awt.Color(0, 0, 0));
+        chk_otros.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_otros.setForeground(new java.awt.Color(255, 255, 255));
+        chk_otros.setText("Otros");
+        pnl_Paciente.add(chk_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+
+        btn_conf.setBackground(new java.awt.Color(0, 0, 0));
+        btn_conf.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btn_conf.setForeground(new java.awt.Color(255, 255, 255));
+        btn_conf.setText("Confirmar");
+        btn_conf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_confActionPerformed(evt);
+            }
+        });
+        pnl_Paciente.add(btn_conf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 200, -1));
+
+        btn_borrar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_borrar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        btn_borrar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_borrar.setText("Borrar");
+        pnl_Paciente.add(btn_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 200, -1));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Consultar");
+        pnl_Paciente.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 200, -1));
+
+        lbl_acepto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Acepto.png"))); // NOI18N
+        pnl_Paciente.add(lbl_acepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 230, 230));
+
+        lbl_Error.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Error.png"))); // NOI18N
+        pnl_Paciente.add(lbl_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         lay_Workbench.setLayer(pnl_Paciente, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -192,13 +320,11 @@ public class Principal extends javax.swing.JFrame {
         lay_Workbench.setLayout(lay_WorkbenchLayout);
         lay_WorkbenchLayout.setHorizontalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lay_WorkbenchLayout.createSequentialGroup()
-                .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
         );
         lay_WorkbenchLayout.setVerticalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
@@ -239,69 +365,69 @@ public class Principal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btn_SalirActionPerformed
 
-    private void txt_NombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusGained
-        txt_Nombre.setText("");
-    }//GEN-LAST:event_txt_NombreFocusGained
-
-    private void txt_NombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_NombreFocusLost
-        if("".equals(txt_Nombre.getText()) || " ".equals(txt_Nombre.getText())){
-            txt_Nombre.setText("Nombre: ");
-        }
-    }//GEN-LAST:event_txt_NombreFocusLost
-
-    private void txt_CedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CedulaFocusGained
-        txt_Cedula.setText("");
-    }//GEN-LAST:event_txt_CedulaFocusGained
-
-    private void txt_CedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_CedulaFocusLost
-        if("".equals(txt_Cedula.getText()) || " ".equals(txt_Cedula.getText())){
-            txt_Cedula.setText("Cedula: ");
-        }
-    }//GEN-LAST:event_txt_CedulaFocusLost
-
-    private void txt_fechNacFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_fechNacFocusGained
-        txt_fechNac.setText("");
-    }//GEN-LAST:event_txt_fechNacFocusGained
-
-    private void txt_fechNacFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_fechNacFocusLost
-        if("".equals(txt_fechNac.getText()) || " ".equals(txt_fechNac.getText())){
-            txt_fechNac.setText("Fecha Nacimiento: ");
-        }
-    }//GEN-LAST:event_txt_fechNacFocusLost
-
-    private void txt_fechNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fechNacActionPerformed
+    private void chk_vpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_vpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fechNacActionPerformed
+    }//GEN-LAST:event_chk_vpActionPerformed
 
-    private void txt_ResidenciaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ResidenciaFocusGained
-        txt_Residencia.setText("");
-    }//GEN-LAST:event_txt_ResidenciaFocusGained
+    private void chk_AltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_AltaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_AltaActionPerformed
 
-    private void txt_ResidenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ResidenciaFocusLost
-        if("".equals(txt_Residencia.getText()) || " ".equals(txt_Residencia.getText())){
-            txt_Residencia.setText("Fecha Nacimiento: ");
+    private void chk_epocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_epocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_epocActionPerformed
+
+    private void cbx_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_resActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbx_resActionPerformed
+
+    private void btn_GrafEnfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GrafEnfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_GrafEnfActionPerformed
+
+    private void chk_parkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_parkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_parkActionPerformed
+
+    private void chk_NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_NuevoActionPerformed
+        if(this.chk_Nuevo.isSelected()){
+            this.cbx_ref.setEnabled(true);
         }
-    }//GEN-LAST:event_txt_ResidenciaFocusLost
+    }//GEN-LAST:event_chk_NuevoActionPerformed
 
-    private void btn_BorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BorrarMouseClicked
-        txt_Cedula.setText("Cedula: ");
-        txt_Nombre.setText("Nombre: ");
-        txt_Residencia.setText("Residencia: ");
-        txt_fechNac.setText("Fecha Nacimiento: ");
-        cbx_Enfermedades.setSelectedIndex(0);
-        cbx_Med.setSelectedIndex(0);
-        this.lbl_Acepto.setVisible(false);
-        this.lbl_error.setVisible(false);
-    }//GEN-LAST:event_btn_BorrarMouseClicked
+    private void txt_nombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusGained
+        this.txt_nombre.setText("");
+    }//GEN-LAST:event_txt_nombreFocusGained
 
-    private void btn_ConfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ConfMouseClicked
-        try {
-            this.lbl_Acepto.setVisible(true);
+    private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
+        if("".equals(this.txt_nombre.getText()) || " ".equals(this.txt_nombre.getText())){
+            this.txt_nombre.setText("Nombre: ");
         }
-        catch (Exception e) {
-            this.lbl_error.setVisible(true);
+    }//GEN-LAST:event_txt_nombreFocusLost
+
+    private void txt_edadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_edadFocusGained
+        this.txt_edad.setText("");
+    }//GEN-LAST:event_txt_edadFocusGained
+
+    private void txt_edadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_edadFocusLost
+        if("".equals(this.txt_edad.getText()) || " ".equals(this.txt_edad.getText())){
+            this.txt_edad.setText("Edad: ");
         }
-    }//GEN-LAST:event_btn_ConfMouseClicked
+    }//GEN-LAST:event_txt_edadFocusLost
+
+    private void txt_cedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cedulaFocusGained
+        this.txt_cedula.setText("");
+    }//GEN-LAST:event_txt_cedulaFocusGained
+
+    private void txt_cedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cedulaFocusLost
+        if("".equals(this.txt_cedula.getText()) || " ".equals(this.txt_cedula.getText())){
+            this.txt_cedula.setText("Edad: ");
+        }
+    }//GEN-LAST:event_txt_cedulaFocusLost
+
+    private void btn_confActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_confActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,25 +465,41 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_AgregarEnf;
-    private javax.swing.JButton btn_AgregarMed;
-    private javax.swing.JButton btn_Borrar;
-    private javax.swing.JButton btn_Conf;
     private javax.swing.JButton btn_GrafEnf;
     private javax.swing.JButton btn_GrafGeo;
     private javax.swing.JButton btn_GrafPac;
     private javax.swing.JButton btn_Salir;
+    private javax.swing.JButton btn_borrar;
+    private javax.swing.JButton btn_conf;
     private javax.swing.JButton btn_paciente;
-    private javax.swing.JComboBox<String> cbx_Enfermedades;
-    private javax.swing.JComboBox<String> cbx_Med;
+    private javax.swing.JComboBox<String> cbx_ref;
+    private javax.swing.JComboBox<String> cbx_res;
+    private javax.swing.JComboBox<String> cbx_sexo;
+    private javax.swing.JCheckBox cgk_demen;
+    private javax.swing.JCheckBox chk_Alta;
+    private javax.swing.JCheckBox chk_Cardio;
+    private javax.swing.JCheckBox chk_Nuevo;
+    private javax.swing.JCheckBox chk_Osteo;
+    private javax.swing.JCheckBox chk_Poli;
+    private javax.swing.JCheckBox chk_abandono;
+    private javax.swing.JCheckBox chk_avc;
+    private javax.swing.JCheckBox chk_cancer;
+    private javax.swing.JCheckBox chk_dm;
+    private javax.swing.JCheckBox chk_epoc;
+    private javax.swing.JCheckBox chk_hta;
+    private javax.swing.JCheckBox chk_inmv;
+    private javax.swing.JCheckBox chk_irc;
+    private javax.swing.JCheckBox chk_otros;
+    private javax.swing.JCheckBox chk_park;
+    private javax.swing.JCheckBox chk_vp;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane lay_Workbench;
-    private javax.swing.JLabel lbl_Acepto;
+    private javax.swing.JLabel lbl_Error;
     private javax.swing.JLabel lbl_Fondo;
-    private javax.swing.JLabel lbl_error;
+    private javax.swing.JLabel lbl_acepto;
     private javax.swing.JPanel pnl_Paciente;
-    private javax.swing.JTextField txt_Cedula;
-    private javax.swing.JTextField txt_Nombre;
-    private javax.swing.JTextField txt_Residencia;
-    private javax.swing.JTextField txt_fechNac;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_edad;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
