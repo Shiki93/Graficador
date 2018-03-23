@@ -76,6 +76,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_acepto = new javax.swing.JLabel();
         lbl_Error = new javax.swing.JLabel();
         pnl_Sexo = new javax.swing.JPanel();
+        pnl_res = new javax.swing.JPanel();
         btn_Salir = new javax.swing.JButton();
         btn_grafSex = new javax.swing.JButton();
         btn_grafEdad = new javax.swing.JButton();
@@ -358,9 +359,23 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 616, Short.MAX_VALUE)
         );
 
+        pnl_res.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_resLayout = new javax.swing.GroupLayout(pnl_res);
+        pnl_res.setLayout(pnl_resLayout);
+        pnl_resLayout.setHorizontalGroup(
+            pnl_resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 846, Short.MAX_VALUE)
+        );
+        pnl_resLayout.setVerticalGroup(
+            pnl_resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+        );
+
         lay_Workbench.setLayer(pnl_edad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_Paciente, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_Sexo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lay_Workbench.setLayer(pnl_res, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout lay_WorkbenchLayout = new javax.swing.GroupLayout(lay_Workbench);
         lay_Workbench.setLayout(lay_WorkbenchLayout);
@@ -374,6 +389,11 @@ public class Principal extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         lay_WorkbenchLayout.setVerticalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,6 +404,11 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(lay_WorkbenchLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -548,12 +573,36 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_Paciente.setVisible(true);
         this.pnl_Sexo.setVisible(false);
         this.pnl_edad.setVisible(false);
+        this.pnl_res.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_Paciente, 0, 0);
     }//GEN-LAST:event_btn_pacienteActionPerformed
 
     private void btn_grafResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafResActionPerformed
-        // TODO add your handling code here:
+        this.pnl_res.setVisible(true);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_edad.setVisible(false);
+        
+        this.lay_Workbench.setLayer(pnl_res, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Nicoya", logica.contarLugar("Nicoya"));
+        data.setValue("Santa Cruz", logica.contarLugar("Santa Cruz"));
+        data.setValue("Nandayure", logica.contarLugar("Nandayure"));
+        data.setValue("Hojancha", logica.contarLugar("Hojancha"));
+        data.setValue("Jicaral", logica.contarLugar("Jicaral"));
+        
+        chart = ChartFactory.createPieChart3D("Distribucion por lugar de Residencia", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        pnl_res.add(panel);
+        pnl_res.repaint();
     }//GEN-LAST:event_btn_grafResActionPerformed
 
     private void chk_otrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_otrosActionPerformed
@@ -562,6 +611,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_grafEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafEdadActionPerformed
         this.pnl_edad.setVisible(true);
+        this.pnl_res.setVisible(false);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        
         this.lay_Workbench.setLayer(pnl_edad, 0, 0);
         
         ChartPanel panel;
@@ -657,6 +710,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_Paciente;
     private javax.swing.JPanel pnl_Sexo;
     private javax.swing.JPanel pnl_edad;
+    private javax.swing.JPanel pnl_res;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_edad;
     private javax.swing.JTextField txt_nombre;
