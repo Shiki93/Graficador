@@ -17,6 +17,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.cbx_ref.setEnabled(false);
+        this.lbl_Error.setVisible(false);
+        this.lbl_acepto.setVisible(false);
     }
 
     /**
@@ -29,7 +31,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_paciente = new javax.swing.JButton();
-        btn_GrafEnf = new javax.swing.JButton();
         lay_Workbench = new javax.swing.JLayeredPane();
         pnl_Paciente = new javax.swing.JPanel();
         txt_nombre = new javax.swing.JTextField();
@@ -57,12 +58,16 @@ public class Principal extends javax.swing.JFrame {
         chk_otros = new javax.swing.JCheckBox();
         btn_conf = new javax.swing.JButton();
         btn_borrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bnt_consult = new javax.swing.JButton();
         lbl_acepto = new javax.swing.JLabel();
         lbl_Error = new javax.swing.JLabel();
-        btn_GrafPac = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
-        btn_GrafGeo = new javax.swing.JButton();
+        btn_grafSex = new javax.swing.JButton();
+        btn_grafEdad = new javax.swing.JButton();
+        btn_grafRes = new javax.swing.JButton();
+        btn_grafAltas = new javax.swing.JButton();
+        btn_nuevos = new javax.swing.JButton();
+        btn_grafEnf = new javax.swing.JButton();
         lbl_Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,19 +79,12 @@ public class Principal extends javax.swing.JFrame {
         btn_paciente.setForeground(new java.awt.Color(255, 255, 255));
         btn_paciente.setText("Paciente");
         btn_paciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
-
-        btn_GrafEnf.setBackground(new java.awt.Color(0, 0, 0));
-        btn_GrafEnf.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
-        btn_GrafEnf.setForeground(new java.awt.Color(255, 255, 255));
-        btn_GrafEnf.setText("Graficar Enfermedad");
-        btn_GrafEnf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_GrafEnf.addActionListener(new java.awt.event.ActionListener() {
+        btn_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_GrafEnfActionPerformed(evt);
+                btn_pacienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_GrafEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 170, 30));
+        getContentPane().add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
 
         lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -105,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
                 txt_nombreFocusLost(evt);
             }
         });
-        pnl_Paciente.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, -1));
+        pnl_Paciente.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 250, -1));
 
         txt_cedula.setBackground(new java.awt.Color(0, 0, 0));
         txt_cedula.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -119,7 +117,7 @@ public class Principal extends javax.swing.JFrame {
                 txt_cedulaFocusLost(evt);
             }
         });
-        pnl_Paciente.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 250, -1));
+        pnl_Paciente.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, -1));
 
         txt_edad.setBackground(new java.awt.Color(0, 0, 0));
         txt_edad.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -133,13 +131,13 @@ public class Principal extends javax.swing.JFrame {
                 txt_edadFocusLost(evt);
             }
         });
-        pnl_Paciente.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 250, -1));
+        pnl_Paciente.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 250, -1));
 
         cbx_sexo.setBackground(new java.awt.Color(0, 0, 0));
         cbx_sexo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         cbx_sexo.setForeground(new java.awt.Color(255, 255, 255));
         cbx_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sexo", "Masculino", "Femenino" }));
-        pnl_Paciente.add(cbx_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 250, -1));
+        pnl_Paciente.add(cbx_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 250, -1));
 
         cbx_res.setBackground(new java.awt.Color(0, 0, 0));
         cbx_res.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -150,7 +148,7 @@ public class Principal extends javax.swing.JFrame {
                 cbx_resActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(cbx_res, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, -1));
+        pnl_Paciente.add(cbx_res, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 250, -1));
 
         chk_Nuevo.setBackground(new java.awt.Color(0, 0, 0));
         chk_Nuevo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -167,7 +165,7 @@ public class Principal extends javax.swing.JFrame {
         cbx_ref.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         cbx_ref.setForeground(new java.awt.Color(255, 255, 255));
         cbx_ref.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Referencia", "Interna", "Externa" }));
-        pnl_Paciente.add(cbx_ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 250, -1));
+        pnl_Paciente.add(cbx_ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 250, -1));
 
         chk_Poli.setBackground(new java.awt.Color(0, 0, 0));
         chk_Poli.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -294,19 +292,19 @@ public class Principal extends javax.swing.JFrame {
                 btn_confActionPerformed(evt);
             }
         });
-        pnl_Paciente.add(btn_conf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 200, -1));
+        pnl_Paciente.add(btn_conf, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 200, -1));
 
         btn_borrar.setBackground(new java.awt.Color(0, 0, 0));
         btn_borrar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btn_borrar.setForeground(new java.awt.Color(255, 255, 255));
         btn_borrar.setText("Borrar");
-        pnl_Paciente.add(btn_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 200, -1));
+        pnl_Paciente.add(btn_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 200, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Consultar");
-        pnl_Paciente.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 200, -1));
+        bnt_consult.setBackground(new java.awt.Color(0, 0, 0));
+        bnt_consult.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        bnt_consult.setForeground(new java.awt.Color(255, 255, 255));
+        bnt_consult.setText("Consultar");
+        pnl_Paciente.add(bnt_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 200, -1));
 
         lbl_acepto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Acepto.png"))); // NOI18N
         pnl_Paciente.add(lbl_acepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 230, 230));
@@ -329,13 +327,6 @@ public class Principal extends javax.swing.JFrame {
 
         getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
 
-        btn_GrafPac.setBackground(new java.awt.Color(0, 0, 0));
-        btn_GrafPac.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
-        btn_GrafPac.setForeground(new java.awt.Color(255, 255, 255));
-        btn_GrafPac.setText("Graficar Paciente");
-        btn_GrafPac.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btn_GrafPac, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, 30));
-
         btn_Salir.setBackground(new java.awt.Color(0, 0, 0));
         btn_Salir.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
         btn_Salir.setForeground(new java.awt.Color(255, 255, 255));
@@ -345,14 +336,53 @@ public class Principal extends javax.swing.JFrame {
                 btn_SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, 30));
+        getContentPane().add(btn_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 170, 30));
 
-        btn_GrafGeo.setBackground(new java.awt.Color(0, 0, 0));
-        btn_GrafGeo.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
-        btn_GrafGeo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_GrafGeo.setText("Graficar Geografia");
-        btn_GrafGeo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(btn_GrafGeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 170, 30));
+        btn_grafSex.setBackground(new java.awt.Color(0, 0, 0));
+        btn_grafSex.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_grafSex.setForeground(new java.awt.Color(255, 255, 255));
+        btn_grafSex.setText("Graficar Sexo");
+        btn_grafSex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grafSexActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_grafSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 170, 30));
+
+        btn_grafEdad.setBackground(new java.awt.Color(0, 0, 0));
+        btn_grafEdad.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_grafEdad.setForeground(new java.awt.Color(255, 255, 255));
+        btn_grafEdad.setText("Graficar Edad");
+        getContentPane().add(btn_grafEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 170, 30));
+
+        btn_grafRes.setBackground(new java.awt.Color(0, 0, 0));
+        btn_grafRes.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_grafRes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_grafRes.setText("Graficar Residencia");
+        btn_grafRes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grafResActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_grafRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 170, 30));
+
+        btn_grafAltas.setBackground(new java.awt.Color(0, 0, 0));
+        btn_grafAltas.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_grafAltas.setForeground(new java.awt.Color(255, 255, 255));
+        btn_grafAltas.setText("Graficar Altas");
+        getContentPane().add(btn_grafAltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 170, 30));
+
+        btn_nuevos.setBackground(new java.awt.Color(0, 0, 0));
+        btn_nuevos.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_nuevos.setForeground(new java.awt.Color(255, 255, 255));
+        btn_nuevos.setText("Graficar Nuevos");
+        getContentPane().add(btn_nuevos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, 30));
+
+        btn_grafEnf.setBackground(new java.awt.Color(0, 0, 0));
+        btn_grafEnf.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        btn_grafEnf.setForeground(new java.awt.Color(255, 255, 255));
+        btn_grafEnf.setText("Graficar Enfermedad");
+        getContentPane().add(btn_grafEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 170, 30));
 
         lbl_Fondo.setBackground(new java.awt.Color(0, 0, 0));
         lbl_Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
@@ -380,10 +410,6 @@ public class Principal extends javax.swing.JFrame {
     private void cbx_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_resActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbx_resActionPerformed
-
-    private void btn_GrafEnfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GrafEnfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_GrafEnfActionPerformed
 
     private void chk_parkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_parkActionPerformed
         // TODO add your handling code here:
@@ -429,6 +455,18 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_confActionPerformed
 
+    private void btn_grafSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafSexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_grafSexActionPerformed
+
+    private void btn_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_pacienteActionPerformed
+
+    private void btn_grafResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_grafResActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -465,12 +503,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_GrafEnf;
-    private javax.swing.JButton btn_GrafGeo;
-    private javax.swing.JButton btn_GrafPac;
+    private javax.swing.JButton bnt_consult;
     private javax.swing.JButton btn_Salir;
     private javax.swing.JButton btn_borrar;
     private javax.swing.JButton btn_conf;
+    private javax.swing.JButton btn_grafAltas;
+    private javax.swing.JButton btn_grafEdad;
+    private javax.swing.JButton btn_grafEnf;
+    private javax.swing.JButton btn_grafRes;
+    private javax.swing.JButton btn_grafSex;
+    private javax.swing.JButton btn_nuevos;
     private javax.swing.JButton btn_paciente;
     private javax.swing.JComboBox<String> cbx_ref;
     private javax.swing.JComboBox<String> cbx_res;
@@ -492,7 +534,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JCheckBox chk_otros;
     private javax.swing.JCheckBox chk_park;
     private javax.swing.JCheckBox chk_vp;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane lay_Workbench;
     private javax.swing.JLabel lbl_Error;
     private javax.swing.JLabel lbl_Fondo;
