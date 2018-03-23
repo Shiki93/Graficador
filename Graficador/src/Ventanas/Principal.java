@@ -5,11 +5,21 @@
  */
 package Ventanas;
 
+import Clases.*;
+import java.util.ArrayList;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
 /**
  *
  * @author oto_z
  */
 public class Principal extends javax.swing.JFrame {
+
+    public ArrayList<Paciente> pacientes = new ArrayList<>();
+    public Logica logica = new Logica();
 
     /**
      * Creates new form Principal
@@ -19,6 +29,9 @@ public class Principal extends javax.swing.JFrame {
         this.cbx_ref.setEnabled(false);
         this.lbl_Error.setVisible(false);
         this.lbl_acepto.setVisible(false);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_edad.setVisible(false);
     }
 
     /**
@@ -32,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
 
         btn_paciente = new javax.swing.JButton();
         lay_Workbench = new javax.swing.JLayeredPane();
+        pnl_edad = new javax.swing.JPanel();
         pnl_Paciente = new javax.swing.JPanel();
         txt_nombre = new javax.swing.JTextField();
         txt_cedula = new javax.swing.JTextField();
@@ -61,6 +75,7 @@ public class Principal extends javax.swing.JFrame {
         bnt_consult = new javax.swing.JButton();
         lbl_acepto = new javax.swing.JLabel();
         lbl_Error = new javax.swing.JLabel();
+        pnl_Sexo = new javax.swing.JPanel();
         btn_Salir = new javax.swing.JButton();
         btn_grafSex = new javax.swing.JButton();
         btn_grafEdad = new javax.swing.JButton();
@@ -87,6 +102,19 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
 
         lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        pnl_edad.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_edadLayout = new javax.swing.GroupLayout(pnl_edad);
+        pnl_edad.setLayout(pnl_edadLayout);
+        pnl_edadLayout.setHorizontalGroup(
+            pnl_edadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 846, Short.MAX_VALUE)
+        );
+        pnl_edadLayout.setVerticalGroup(
+            pnl_edadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+        );
 
         pnl_Paciente.setOpaque(false);
         pnl_Paciente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -281,6 +309,11 @@ public class Principal extends javax.swing.JFrame {
         chk_otros.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         chk_otros.setForeground(new java.awt.Color(255, 255, 255));
         chk_otros.setText("Otros");
+        chk_otros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_otrosActionPerformed(evt);
+            }
+        });
         pnl_Paciente.add(chk_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
 
         btn_conf.setBackground(new java.awt.Color(0, 0, 0));
@@ -312,17 +345,46 @@ public class Principal extends javax.swing.JFrame {
         lbl_Error.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Error.png"))); // NOI18N
         pnl_Paciente.add(lbl_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
+        pnl_Sexo.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_SexoLayout = new javax.swing.GroupLayout(pnl_Sexo);
+        pnl_Sexo.setLayout(pnl_SexoLayout);
+        pnl_SexoLayout.setHorizontalGroup(
+            pnl_SexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 846, Short.MAX_VALUE)
+        );
+        pnl_SexoLayout.setVerticalGroup(
+            pnl_SexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+        );
+
+        lay_Workbench.setLayer(pnl_edad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_Paciente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lay_Workbench.setLayer(pnl_Sexo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout lay_WorkbenchLayout = new javax.swing.GroupLayout(lay_Workbench);
         lay_Workbench.setLayout(lay_WorkbenchLayout);
         lay_WorkbenchLayout.setHorizontalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnl_Sexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         lay_WorkbenchLayout.setVerticalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(pnl_Sexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
@@ -353,6 +415,11 @@ public class Principal extends javax.swing.JFrame {
         btn_grafEdad.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
         btn_grafEdad.setForeground(new java.awt.Color(255, 255, 255));
         btn_grafEdad.setText("Graficar Edad");
+        btn_grafEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grafEdadActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_grafEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 170, 30));
 
         btn_grafRes.setBackground(new java.awt.Color(0, 0, 0));
@@ -456,16 +523,65 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_confActionPerformed
 
     private void btn_grafSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafSexActionPerformed
-        // TODO add your handling code here:
+        this.pnl_Sexo.setVisible(true);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_edad.setVisible(false);
+        
+        this.lay_Workbench.setLayer(pnl_Sexo, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Hombres", logica.contarSexo("Masculino"));
+        data.setValue("Mujeres", logica.contarSexo("Femenino"));
+        
+        chart = ChartFactory.createPieChart3D("Distribucion por generos", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        pnl_Sexo.add(panel);
+        pnl_Sexo.repaint();
     }//GEN-LAST:event_btn_grafSexActionPerformed
 
     private void btn_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pacienteActionPerformed
-        // TODO add your handling code here:
+        this.pnl_Paciente.setVisible(true);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_edad.setVisible(false);
+        
+        this.lay_Workbench.setLayer(pnl_Paciente, 0, 0);
     }//GEN-LAST:event_btn_pacienteActionPerformed
 
     private void btn_grafResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafResActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_grafResActionPerformed
+
+    private void chk_otrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_otrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_otrosActionPerformed
+
+    private void btn_grafEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafEdadActionPerformed
+        this.pnl_edad.setVisible(true);
+        this.lay_Workbench.setLayer(pnl_edad, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("De 65 a 70", logica.contarEdad(65, 70));
+        data.setValue("De 71 a 80", logica.contarEdad(71, 80));
+        data.setValue("De 81 a 90", logica.contarEdad(81, 90));
+        data.setValue("De 91 a 100", logica.contarEdad(91, 100));
+        data.setValue("Más de 100", logica.contarEdad(101, 5000));
+        
+        chart = ChartFactory.createPieChart3D("Distribucion por Edad", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        this.pnl_edad.add(panel);
+        this.pnl_edad.repaint();
+    }//GEN-LAST:event_btn_grafEdadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -539,6 +655,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Fondo;
     private javax.swing.JLabel lbl_acepto;
     private javax.swing.JPanel pnl_Paciente;
+    private javax.swing.JPanel pnl_Sexo;
+    private javax.swing.JPanel pnl_edad;
     private javax.swing.JTextField txt_cedula;
     private javax.swing.JTextField txt_edad;
     private javax.swing.JTextField txt_nombre;

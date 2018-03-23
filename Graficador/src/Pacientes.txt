@@ -1,0 +1,58 @@
+villarreal medina florencio,50840476,Masculino,70,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+lopez lopez maría,51170647,Femenino,80,Nandayure,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
+cordero chavarría moises,50920802,Masculino,75,Santa Cruz,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0
+araya fallas eladio,22140706,Masculino,68,Nicoya,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+gomez espinoza matías,50109203,Masculino,80,Nicoya,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+medina caravaca gloria,50088028,Femenino,78,Hojancha,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+rodriguez zuñiga gala,50054163,Femenino,90,Nandayure,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+pizarro torres ileana,51250423,Femenino,,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+rodriguez ulloa iris,500640042,Femenino,67,Santa Cruz,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+hernandez cruz elsa,800220426,Femenino,81,Santa Cruz,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+orozco espinoza marita,51310614,Femenino,76,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+esquivel villegas lidia,51260446,Femenino,83,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+piña guido maría,50042362,Femenino,75,Hojancha,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+íacastillo medina mar,900620124,Masculino,,Nicoya,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1
+vargas quiros nereida,21260410,Femenino,87,Nandayure,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+grijalba villafuerte carlos,50058742,Masculino,82,Nicoya,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0
+zuñiga zuñiga federico,50640937,Masculino,69,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+arrieta acevedo yetty,51150074,Femenino,70,Santa Cruz,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
+fonseca peraza francisco,50600108,Masculino,82,Nicoya,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
+rosales briceño gerardo,51070332,Masculino,76,Hojancha,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+quesada castro alfredo,12010376,Masculino,80,Nandayure,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+fajardo jimenez clarisa,500850165,Femenino,73,Hojancha,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+espinoza espinoza javier,90048364,Masculino,87,Nicoya,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+torres díaz maría,600760825,Femenino,65,Nandayure,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+bonilla obregón jackeline,53510753,Femenino,71,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+campos abarca zoraida,22370642,Femenino,79,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+enriquez guevara flor,500750834,Femenino,75,Jicaral,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+gonzalez alvarado ana,22240624,Femenino,78,Santa Cruz,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+obando granados etilma,50094973,Masculino,81,Santa Cruz,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+espinoza silva maría,50094741,Femenino,66,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+hernández díaz maría,90050754,Femenino,90,Hojancha,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+quesada elizondo francisca,52380992,Femenino,71,Nandayure,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0
+venegas durán maría,900440337,Femenino,78,Santa Cruz,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+ángulo ángulo raimunda,500420807,Femenino,90,Nicoya,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+ramírez padilla ojenes,500430917,Masculino,92,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+cubero villalobos alfredo,21820485,Masculino,75,Hojancha,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+guevara matarrita clemencia,50066127,Femenino,83,Nicoya,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0
+hernández hernández zenón,50058145,Masculino,71,Santa Cruz,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
+zuñiga zuñiga edith,50046563,Femenino,78,Nandayure,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+hernández hernández paulina,500761004,Femenino,73,Santa Cruz,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1
+matarrita matarrita josé,500360978,Masculino,91,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+ugalde ugalde carlos,21810003,Masculino,71,Nicoya,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+chaves rodriguez faride,500850111,Masculino,82,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+campos campos joaquin,50088513,Masculino,87,Santa Cruz,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+rosales gutierrez maría ,500440325,Femenino,69,Nandayure,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+solorzano guevara yolanda,500820218,Femenino,77,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+castro rojas margarita,90510710,Femenino,83,Nicoya,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+juarez morales delmis,80300352,Femenino,75,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+perez perez luis,51060273,Masculino,81,Nandayure,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+rodriguez alpizar etelgive,90032752,Femenino,82,Santa Cruz,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+oviedo ramírez brígida,21440130,Femenino,68,Nandayure,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+gutierrez garcía josé,50059434,Masculino,76,Nicoya,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+dinarte sánchez eneida,50066705,Femenino,78,Hojancha,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
+mayorga carrillo hilda,500740015,Femenino,74,Nandayure,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+sequeira obregón maría,51310470,Femenino,81,Nicoya,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+díaz casarez guillermina,51070661,Femenino,65,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+zuñiga zuñiga narcisa,500810234,Femenino,83,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+vallejos vallejos andrés,500310937,Masculino,87,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
