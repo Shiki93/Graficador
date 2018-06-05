@@ -32,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_Paciente.setVisible(false);
         this.pnl_Sexo.setVisible(false);
         this.pnl_edad.setVisible(false);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
+        this.pnl_Enfermedad.setVisible(false);
     }
 
     /**
@@ -43,9 +46,10 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_paciente = new javax.swing.JButton();
         lay_Workbench = new javax.swing.JLayeredPane();
+        pnl_Altas = new javax.swing.JPanel();
         pnl_edad = new javax.swing.JPanel();
+        pnl_Nuevo = new javax.swing.JPanel();
         pnl_Paciente = new javax.swing.JPanel();
         txt_nombre = new javax.swing.JTextField();
         txt_cedula = new javax.swing.JTextField();
@@ -65,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
         chk_irc = new javax.swing.JCheckBox();
         chk_park = new javax.swing.JCheckBox();
         chk_hta = new javax.swing.JCheckBox();
-        cgk_demen = new javax.swing.JCheckBox();
+        chk_demen = new javax.swing.JCheckBox();
         chk_inmv = new javax.swing.JCheckBox();
         chk_avc = new javax.swing.JCheckBox();
         chk_cancer = new javax.swing.JCheckBox();
@@ -76,7 +80,9 @@ public class Principal extends javax.swing.JFrame {
         lbl_acepto = new javax.swing.JLabel();
         lbl_Error = new javax.swing.JLabel();
         pnl_Sexo = new javax.swing.JPanel();
+        pnl_Enfermedad = new javax.swing.JPanel();
         pnl_res = new javax.swing.JPanel();
+        btn_paciente = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
         btn_grafSex = new javax.swing.JButton();
         btn_grafEdad = new javax.swing.JButton();
@@ -90,19 +96,20 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_paciente.setBackground(new java.awt.Color(0, 0, 0));
-        btn_paciente.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
-        btn_paciente.setForeground(new java.awt.Color(255, 255, 255));
-        btn_paciente.setText("Paciente");
-        btn_paciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_paciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pacienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
-
         lay_Workbench.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        pnl_Altas.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_AltasLayout = new javax.swing.GroupLayout(pnl_Altas);
+        pnl_Altas.setLayout(pnl_AltasLayout);
+        pnl_AltasLayout.setHorizontalGroup(
+            pnl_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 850, Short.MAX_VALUE)
+        );
+        pnl_AltasLayout.setVerticalGroup(
+            pnl_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 659, Short.MAX_VALUE)
+        );
 
         pnl_edad.setOpaque(false);
 
@@ -110,11 +117,24 @@ public class Principal extends javax.swing.JFrame {
         pnl_edad.setLayout(pnl_edadLayout);
         pnl_edadLayout.setHorizontalGroup(
             pnl_edadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGap(0, 855, Short.MAX_VALUE)
         );
         pnl_edadLayout.setVerticalGroup(
             pnl_edadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+
+        pnl_Nuevo.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_NuevoLayout = new javax.swing.GroupLayout(pnl_Nuevo);
+        pnl_Nuevo.setLayout(pnl_NuevoLayout);
+        pnl_NuevoLayout.setHorizontalGroup(
+            pnl_NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 856, Short.MAX_VALUE)
+        );
+        pnl_NuevoLayout.setVerticalGroup(
+            pnl_NuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 637, Short.MAX_VALUE)
         );
 
         pnl_Paciente.setOpaque(false);
@@ -151,7 +171,7 @@ public class Principal extends javax.swing.JFrame {
         txt_edad.setBackground(new java.awt.Color(0, 0, 0));
         txt_edad.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         txt_edad.setForeground(new java.awt.Color(255, 255, 255));
-        txt_edad.setText("Edad");
+        txt_edad.setText("Edad: ");
         txt_edad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_edadFocusGained(evt);
@@ -282,11 +302,11 @@ public class Principal extends javax.swing.JFrame {
         chk_hta.setText("H.T.A.");
         pnl_Paciente.add(chk_hta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
 
-        cgk_demen.setBackground(new java.awt.Color(0, 0, 0));
-        cgk_demen.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        cgk_demen.setForeground(new java.awt.Color(255, 255, 255));
-        cgk_demen.setText("Demencia");
-        pnl_Paciente.add(cgk_demen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
+        chk_demen.setBackground(new java.awt.Color(0, 0, 0));
+        chk_demen.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        chk_demen.setForeground(new java.awt.Color(255, 255, 255));
+        chk_demen.setText("Demencia");
+        pnl_Paciente.add(chk_demen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
 
         chk_inmv.setBackground(new java.awt.Color(0, 0, 0));
         chk_inmv.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
@@ -332,6 +352,11 @@ public class Principal extends javax.swing.JFrame {
         btn_borrar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         btn_borrar.setForeground(new java.awt.Color(255, 255, 255));
         btn_borrar.setText("Borrar");
+        btn_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_borrarActionPerformed(evt);
+            }
+        });
         pnl_Paciente.add(btn_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 200, -1));
 
         bnt_consult.setBackground(new java.awt.Color(0, 0, 0));
@@ -347,72 +372,126 @@ public class Principal extends javax.swing.JFrame {
         pnl_Paciente.add(lbl_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         pnl_Sexo.setOpaque(false);
+        pnl_Sexo.setPreferredSize(new java.awt.Dimension(850, 635));
 
         javax.swing.GroupLayout pnl_SexoLayout = new javax.swing.GroupLayout(pnl_Sexo);
         pnl_Sexo.setLayout(pnl_SexoLayout);
         pnl_SexoLayout.setHorizontalGroup(
             pnl_SexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGap(0, 856, Short.MAX_VALUE)
         );
         pnl_SexoLayout.setVerticalGroup(
             pnl_SexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 637, Short.MAX_VALUE)
+        );
+
+        pnl_Enfermedad.setOpaque(false);
+
+        javax.swing.GroupLayout pnl_EnfermedadLayout = new javax.swing.GroupLayout(pnl_Enfermedad);
+        pnl_Enfermedad.setLayout(pnl_EnfermedadLayout);
+        pnl_EnfermedadLayout.setHorizontalGroup(
+            pnl_EnfermedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 856, Short.MAX_VALUE)
+        );
+        pnl_EnfermedadLayout.setVerticalGroup(
+            pnl_EnfermedadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 639, Short.MAX_VALUE)
         );
 
         pnl_res.setOpaque(false);
+        pnl_res.setPreferredSize(new java.awt.Dimension(850, 635));
 
         javax.swing.GroupLayout pnl_resLayout = new javax.swing.GroupLayout(pnl_res);
         pnl_res.setLayout(pnl_resLayout);
         pnl_resLayout.setHorizontalGroup(
             pnl_resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 846, Short.MAX_VALUE)
+            .addGap(0, 854, Short.MAX_VALUE)
         );
         pnl_resLayout.setVerticalGroup(
             pnl_resLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGap(0, 651, Short.MAX_VALUE)
         );
 
+        lay_Workbench.setLayer(pnl_Altas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_edad, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lay_Workbench.setLayer(pnl_Nuevo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_Paciente, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_Sexo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lay_Workbench.setLayer(pnl_Enfermedad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lay_Workbench.setLayer(pnl_res, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout lay_WorkbenchLayout = new javax.swing.GroupLayout(lay_Workbench);
         lay_Workbench.setLayout(lay_WorkbenchLayout);
         lay_WorkbenchLayout.setHorizontalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
-            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnl_Sexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
             .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lay_WorkbenchLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 1, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 2, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lay_WorkbenchLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnl_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Enfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         lay_WorkbenchLayout.setVerticalGroup(
             lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnl_Sexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnl_Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
             .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lay_WorkbenchLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(pnl_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 40, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Altas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lay_WorkbenchLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(pnl_res, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 22, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 22, Short.MAX_VALUE)))
+            .addGroup(lay_WorkbenchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lay_WorkbenchLayout.createSequentialGroup()
+                    .addComponent(pnl_Enfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 20, Short.MAX_VALUE)))
         );
 
         getContentPane().add(lay_Workbench, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 850, 620));
+
+        btn_paciente.setBackground(new java.awt.Color(0, 0, 0));
+        btn_paciente.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        btn_paciente.setForeground(new java.awt.Color(255, 255, 255));
+        btn_paciente.setText("Paciente");
+        btn_paciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pacienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
 
         btn_Salir.setBackground(new java.awt.Color(0, 0, 0));
         btn_Salir.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
@@ -462,18 +541,33 @@ public class Principal extends javax.swing.JFrame {
         btn_grafAltas.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
         btn_grafAltas.setForeground(new java.awt.Color(255, 255, 255));
         btn_grafAltas.setText("Graficar Altas");
+        btn_grafAltas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grafAltasActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_grafAltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 170, 30));
 
         btn_nuevos.setBackground(new java.awt.Color(0, 0, 0));
         btn_nuevos.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
         btn_nuevos.setForeground(new java.awt.Color(255, 255, 255));
         btn_nuevos.setText("Graficar Nuevos");
+        btn_nuevos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_nuevos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, 30));
 
         btn_grafEnf.setBackground(new java.awt.Color(0, 0, 0));
         btn_grafEnf.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         btn_grafEnf.setForeground(new java.awt.Color(255, 255, 255));
         btn_grafEnf.setText("Graficar Enfermedad");
+        btn_grafEnf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_grafEnfActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_grafEnf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 170, 30));
 
         lbl_Fondo.setBackground(new java.awt.Color(0, 0, 0));
@@ -544,13 +638,15 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_cedulaFocusLost
 
     private void btn_confActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_confActionPerformed
 
     private void btn_grafSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafSexActionPerformed
         this.pnl_Sexo.setVisible(true);
         this.pnl_Paciente.setVisible(false);
         this.pnl_edad.setVisible(false);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_Sexo, 0, 0);
         
@@ -574,6 +670,8 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_Sexo.setVisible(false);
         this.pnl_edad.setVisible(false);
         this.pnl_res.setVisible(false);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_Paciente, 0, 0);
     }//GEN-LAST:event_btn_pacienteActionPerformed
@@ -583,6 +681,8 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_Paciente.setVisible(false);
         this.pnl_Sexo.setVisible(false);
         this.pnl_edad.setVisible(false);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_res, 0, 0);
         
@@ -614,6 +714,8 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_res.setVisible(false);
         this.pnl_Paciente.setVisible(false);
         this.pnl_Sexo.setVisible(false);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_edad, 0, 0);
         
@@ -635,6 +737,124 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_edad.add(panel);
         this.pnl_edad.repaint();
     }//GEN-LAST:event_btn_grafEdadActionPerformed
+
+    private void btn_grafAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafAltasActionPerformed
+        this.pnl_edad.setVisible(false);
+        this.pnl_res.setVisible(false);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
+        this.pnl_Altas.setVisible(true);
+        
+        this.lay_Workbench.setLayer(pnl_Altas, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Altas", logica.contarAltas());
+        data.setValue("No Altas", logica.contarNoAltas());
+        
+        chart = ChartFactory.createPieChart3D("Distribucion de altas", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        this.pnl_Altas.add(panel);
+        this.pnl_Altas.repaint();
+    }//GEN-LAST:event_btn_grafAltasActionPerformed
+
+    private void btn_nuevosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevosActionPerformed
+        this.pnl_Nuevo.setVisible(true);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_edad.setVisible(false);
+        this.pnl_res.setVisible(false);
+        
+        this.lay_Workbench.setLayer(pnl_Nuevo, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Nuevos", logica.contarNuevos());
+        data.setValue("No nuevos", logica.contarNoNuevos());
+        
+        chart = ChartFactory.createPieChart3D("Distribución por nuevos", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        this.pnl_Nuevo.add(panel);
+        this.pnl_Nuevo.repaint();
+    }//GEN-LAST:event_btn_nuevosActionPerformed
+
+    private void btn_grafEnfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafEnfActionPerformed
+        this.pnl_Enfermedad.setVisible(true);
+        this.pnl_Altas.setVisible(false);
+        this.pnl_Nuevo.setVisible(false);
+        this.pnl_Paciente.setVisible(false);
+        this.pnl_Sexo.setVisible(false);
+        this.pnl_edad.setVisible(false);
+        this.pnl_res.setVisible(false);
+        
+        this.lay_Workbench.setLayer(pnl_Enfermedad, 0, 0);
+        
+        ChartPanel panel;
+        JFreeChart chart = null;
+        
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Cardiopatía", logica.contarCardio());
+        data.setValue("Cancer", logica.contarCancer());
+        data.setValue("Polifarmacia", logica.contarPoli());
+        data.setValue("E.P.O.C.", logica.contarEpoc());
+        data.setValue("I.R.C.", logica.contarIrc());
+        data.setValue("Inmovil", logica.contarInmovil());
+        data.setValue("Abandono", logica.contarAbandono());
+        data.setValue("Parkinson", logica.contarPark());
+        data.setValue("A.V.C.", logica.contarAvc());
+        data.setValue("Osteoporosis", logica.contarOsteo());
+        data.setValue("H.T.A.", logica.contarHta());
+        data.setValue("D.M.", logica.contarDm());
+        data.setValue("Demencia", logica.contarDemencia());
+        data.setValue("Otros", logica.contarOtros());
+        data.setValue("Valoracion Preoperatoria", logica.contarValoracion());
+        
+        chart = ChartFactory.createPieChart3D("Distribución por enfermedad", data, true, true, true);
+        
+        panel = new ChartPanel(chart);
+        panel.setBounds(0, 0, 846, 616);
+        
+        this.pnl_Enfermedad.add(panel);
+        this.pnl_Enfermedad.repaint();
+    }//GEN-LAST:event_btn_grafEnfActionPerformed
+
+    private void btn_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrarActionPerformed
+        this.txt_cedula.setText("Cedula: ");
+        this.txt_nombre.setText("Nombre: ");
+        this.txt_edad.setText("Edad: ");
+        this.cbx_res.setSelectedIndex(0);
+        this.cbx_ref.setSelectedIndex(0);
+        this.cbx_sexo.setSelectedIndex(0);
+        this.chk_abandono.setSelected(false);
+        this.chk_avc.setSelected(false);
+        this.chk_Alta.setSelected(false);
+        this.chk_cancer.setSelected(false);
+        this.chk_Cardio.setSelected(false);
+        this.chk_dm.setSelected(false);
+        this.chk_demen.setSelected(false);
+        this.chk_epoc.setSelected(false);
+        this.chk_hta.setSelected(false);
+        this.chk_irc.setSelected(false);
+        this.chk_inmv.setSelected(false);
+        this.chk_Nuevo.setSelected(false);
+        this.chk_Osteo.setSelected(false);
+        this.chk_otros.setSelected(false);
+        this.chk_park.setSelected(false);
+        this.chk_Poli.setSelected(false);
+        this.chk_vp.setSelected(false);
+    }//GEN-LAST:event_btn_borrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -686,7 +906,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbx_ref;
     private javax.swing.JComboBox<String> cbx_res;
     private javax.swing.JComboBox<String> cbx_sexo;
-    private javax.swing.JCheckBox cgk_demen;
     private javax.swing.JCheckBox chk_Alta;
     private javax.swing.JCheckBox chk_Cardio;
     private javax.swing.JCheckBox chk_Nuevo;
@@ -695,6 +914,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JCheckBox chk_abandono;
     private javax.swing.JCheckBox chk_avc;
     private javax.swing.JCheckBox chk_cancer;
+    private javax.swing.JCheckBox chk_demen;
     private javax.swing.JCheckBox chk_dm;
     private javax.swing.JCheckBox chk_epoc;
     private javax.swing.JCheckBox chk_hta;
@@ -707,6 +927,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Error;
     private javax.swing.JLabel lbl_Fondo;
     private javax.swing.JLabel lbl_acepto;
+    private javax.swing.JPanel pnl_Altas;
+    private javax.swing.JPanel pnl_Enfermedad;
+    private javax.swing.JPanel pnl_Nuevo;
     private javax.swing.JPanel pnl_Paciente;
     private javax.swing.JPanel pnl_Sexo;
     private javax.swing.JPanel pnl_edad;
