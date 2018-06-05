@@ -56,3 +56,4 @@ sequeira obregón maría,51310470,Femenino,81,Nicoya,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
 díaz casarez guillermina,51070661,Femenino,65,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1
 zuñiga zuñiga narcisa,500810234,Femenino,83,Nicoya,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1
 vallejos vallejos andrés,500310937,Masculino,87,Santa Cruz,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0,1
+Otoniel Murillo,402180262,Masculino,90,Nicoya,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0

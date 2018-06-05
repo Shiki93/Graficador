@@ -6,10 +6,11 @@
 package Ventanas;
 
 import Clases.*;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
+import javax.swing.JOptionPane;
+import org.jfree.chart.*;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
@@ -363,6 +364,11 @@ public class Principal extends javax.swing.JFrame {
         bnt_consult.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         bnt_consult.setForeground(new java.awt.Color(255, 255, 255));
         bnt_consult.setText("Consultar");
+        bnt_consult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnt_consultActionPerformed(evt);
+            }
+        });
         pnl_Paciente.add(bnt_consult, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 200, -1));
 
         lbl_acepto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Acepto.png"))); // NOI18N
@@ -637,8 +643,275 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_cedulaFocusLost
 
+    public boolean Verifica(){
+        boolean res = false;
+        if(this.txt_nombre.getText() == null || "".equals(this.txt_nombre.getText())){
+            res = false;
+        }
+        else if(this.txt_cedula.getText() == null || "".equals(this.txt_cedula.getText())){
+            res = false;
+        }
+        else if(this.txt_edad.getText() == null || "".equals(this.txt_edad.getText())){
+            res = false;
+        }
+        else{
+            res = true;
+        }
+        return res;
+    }
+    
     private void btn_confActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confActionPerformed
+        boolean poli = false;
+        boolean abandono = false;
+        boolean valoracion = false;
+        boolean alta = false;
+        boolean nuevo = false;
+        boolean epoc = false;
+        boolean dm = false;
+        boolean hta = false;
+        boolean avc = false;
+        boolean cardio = false;
+        boolean irc = false;
+        boolean demencia = false;
+        boolean cancer = false;
+        boolean osteo = false;
+        boolean park = false;
+        boolean inmovil = false;
+        boolean otros = false;
         
+        if(Verifica()){
+            String nombre = this.txt_nombre.getText();
+            String cedula = this.txt_cedula.getText();
+            if(!logica.verifica(cedula)){
+                String edad = this.txt_edad.getText();
+                String sexo;
+                if(this.cbx_sexo.getSelectedIndex() == 1){
+                    sexo = "Masculino";
+                }
+                else{
+                    sexo = "Femenino";
+                }
+                String lugar;
+                switch (cbx_res.getSelectedIndex()) {
+                    case 1:
+                        lugar = "Nicoya";
+                        break;
+                    case 2:
+                        lugar = "Santa Cruz";
+                        break;
+                    case 3:
+                        lugar = "Nandayure";
+                        break;
+                    case 4:
+                        lugar = "Hojancha";
+                        break;
+                    default:
+                        lugar = "Jicaral";
+                        break;
+                }
+                poli = this.chk_Poli.isSelected();
+                abandono = this.chk_abandono.isSelected();
+                valoracion = this.chk_vp.isSelected();
+                alta = this.chk_Alta.isSelected();
+                nuevo = this.chk_Nuevo.isSelected();
+                String referencia = "Interno";
+                if(nuevo){
+                    if(cbx_ref.getSelectedIndex() == 1){
+                        referencia = "Interno";
+                    }
+                    else{
+                        referencia = "Externo";
+                    }
+                }
+                epoc = this.chk_epoc.isSelected();
+                dm = this.chk_dm.isSelected();
+                hta = this.chk_hta.isSelected();
+                avc = this.chk_avc.isSelected();
+                cardio = this.chk_Cardio.isSelected();
+                irc = this.chk_irc.isSelected();
+                demencia = this.chk_demen.isSelected();
+                cancer = this.chk_cancer.isSelected();
+                osteo = this.chk_Osteo.isSelected();
+                park = this.chk_park.isSelected();
+                inmovil = this.chk_inmv.isSelected();
+                otros = this.chk_otros.isSelected();
+                Paciente pac = new Paciente(nombre, cedula, sexo, edad, lugar, referencia, poli, abandono, epoc, dm, hta, cardio, irc, demencia, cancer, osteo, park, avc, inmovil, valoracion, otros, alta, nuevo);
+                this.pacientes.add(pac);
+                
+                FileWriter archivo = null;
+                PrintWriter pw = null;
+                
+                try {
+                    archivo = new FileWriter("Pacientes.txt", true);
+                    pw = new PrintWriter(archivo);
+                    pw.println();
+                    pw.print(nombre);
+                    pw.print(",");
+                    pw.print(cedula);
+                    pw.print(",");
+                    pw.print(sexo);
+                    pw.print(",");
+                    pw.print(edad);
+                    pw.print(",");
+                    pw.print(lugar);
+                    pw.print(",");
+                    if("Interno".equals(referencia)){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(poli){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(abandono){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(epoc){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(dm){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(hta){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(cardio){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(irc){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(demencia){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(cancer){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(osteo){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(park){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(avc){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(inmovil){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(valoracion){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(otros){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(alta){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    pw.print(",");
+                    if(nuevo){
+                        pw.print(1);
+                    }
+                    else{
+                        pw.print(0);
+                    }
+                    this.lbl_acepto.setVisible(true);
+                    this.lbl_Error.setVisible(false);
+                }
+                catch (Exception e) {
+                    this.lbl_Error.setVisible(true);
+                    this.lbl_acepto.setVisible(false);
+                    this.btn_borrarActionPerformed(evt);
+                }
+                finally{
+                    try {
+                        if(null != archivo){
+                            archivo.close();
+                        }
+                    }
+                    catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, "Error en el protocolo de archivos.\n Intente de nuevo");
+                    }
+                }
+            }
+            else{
+                
+                JOptionPane.showMessageDialog(this, "El paciente que desea agregar ya se encuentra en memoria.");
+                this.lbl_Error.setVisible(true);
+                this.lbl_acepto.setVisible(false);
+                this.btn_borrarActionPerformed(evt);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Datos incompletos o erroneos.\nFavor verifique.");
+            this.lbl_Error.setVisible(true);
+            this.lbl_acepto.setVisible(false);
+        }
     }//GEN-LAST:event_btn_confActionPerformed
 
     private void btn_grafSexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_grafSexActionPerformed
@@ -672,6 +945,7 @@ public class Principal extends javax.swing.JFrame {
         this.pnl_res.setVisible(false);
         this.pnl_Altas.setVisible(false);
         this.pnl_Nuevo.setVisible(false);
+        this.pnl_Enfermedad.setVisible(false);
         
         this.lay_Workbench.setLayer(pnl_Paciente, 0, 0);
     }//GEN-LAST:event_btn_pacienteActionPerformed
@@ -825,7 +1099,7 @@ public class Principal extends javax.swing.JFrame {
         
         panel = new ChartPanel(chart);
         panel.setBounds(0, 0, 846, 616);
-        
+       
         this.pnl_Enfermedad.add(panel);
         this.pnl_Enfermedad.repaint();
     }//GEN-LAST:event_btn_grafEnfActionPerformed
@@ -854,12 +1128,115 @@ public class Principal extends javax.swing.JFrame {
         this.chk_park.setSelected(false);
         this.chk_Poli.setSelected(false);
         this.chk_vp.setSelected(false);
+        
+        this.lbl_Error.setVisible(false);
+        this.lbl_acepto.setVisible(false);
     }//GEN-LAST:event_btn_borrarActionPerformed
+
+    private void bnt_consultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_consultActionPerformed
+        String cedula = this.txt_cedula.getText();
+        for(Paciente paciente : pacientes){
+            if(paciente.getCedula().equals(cedula)){
+                //paciente.imprimir();
+                this.btn_borrarActionPerformed(evt);
+                this.txt_nombre.setText(paciente.getNombre());
+                this.txt_cedula.setText(cedula);
+                this.txt_edad.setText(paciente.getEdad() + " años");
+                if("Masculino".equals(paciente.getSexo())){
+                    this.cbx_sexo.setSelectedIndex(1);
+                }
+                else{
+                    this.cbx_sexo.setSelectedIndex(2);
+                }
+                if(null != paciente.getLugar())switch (paciente.getLugar()) {
+                    case "Nicoya":
+                        this.cbx_res.setSelectedIndex(1);
+                        break;
+                    case "Santa Cruz":
+                        this.cbx_res.setSelectedIndex(2);
+                        break;
+                    case "Nandayure":
+                        this.cbx_res.setSelectedIndex(3);
+                        break;
+                    case "Hojancha":
+                        this.cbx_res.setSelectedIndex(4);
+                        break;
+                    case "Jicaral":
+                        this.cbx_res.setSelectedIndex(5);
+                        break;
+                    default:
+                        break;
+                }
+                if(paciente.isPoli()){
+                    this.chk_Poli.setSelected(true);
+                }
+                if(paciente.isAbandono()){
+                    this.chk_abandono.setSelected(true);
+                }
+                if(paciente.isValoracion()){
+                    this.chk_vp.setSelected(true);
+                }
+                if(paciente.isAlta()){
+                    this.chk_Alta.setSelected(true);
+                }
+                if(paciente.isEpoc()){
+                    this.chk_epoc.setSelected(true);
+                }
+                if(paciente.isDm()){
+                    this.chk_dm.setSelected(true);
+                }
+                if(paciente.isHta()){
+                    this.chk_hta.setSelected(true);
+                }
+                if(paciente.isAvc()){
+                    this.chk_avc.setSelected(true);
+                }
+                if(paciente.isCardio()){
+                    this.chk_Cardio.setSelected(true);
+                }
+                if(paciente.isIrc()){
+                    this.chk_irc.setSelected(true);
+                }
+                if(paciente.isDemencia()){
+                    this.chk_demen.setSelected(true);
+                }
+                if(paciente.isCancer()){
+                    this.chk_cancer.setSelected(true);
+                }
+                if(paciente.isOsteo()){
+                    this.chk_Osteo.setSelected(true);
+                }
+                if(paciente.isPark()){
+                    this.chk_park.setSelected(true);
+                }
+                if(paciente.isInmovil()){
+                    this.chk_inmv.setSelected(true);
+                }
+                if(paciente.isOtros()){
+                    this.chk_otros.setSelected(true);
+                }
+                if(paciente.isNuevo()){
+                    this.chk_Nuevo.setSelected(true);
+                    this.cbx_ref.setEnabled(true);
+                    if("Interna".equals(paciente.getReferencia())){
+                        this.cbx_ref.setSelectedIndex(1);
+                    }
+                    else{
+                        this.cbx_ref.setSelectedIndex(2);
+                    }
+                }
+                if(this.cbx_ref.getSelectedIndex() == 0){
+                    this.cbx_ref.setSelectedIndex(1);
+                }
+            }
+        }
+    }//GEN-LAST:event_bnt_consultActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
